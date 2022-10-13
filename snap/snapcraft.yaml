@@ -1,0 +1,40 @@
+name: tensorflow-imx8
+base: core20
+version: '0.1'
+summary: TensorFlow for the i.MX8
+description: |
+  This is my-snap's description. You have a paragraph or two to tell the
+  most important story about your snap. Keep it under 100 words though,
+  we live in tweetspace and your description wants to look good in the snap
+  store.
+compression: lzo
+grade: stable
+confinement: strict
+architectures:
+  - build-on: arm64
+    run-on: arm64
+parts:
+  venv:
+    plugin: nil
+    build-packages:
+      - python3-virtualenv
+    override-build: |
+        virtualenv ${SNAPCRAFT_PART_INSTALL}/opt/venv
+        # Install packages as listed here: https://www.tensorflow.org/install/source
+        ${SNAPCRAFT_PART_INSTALL}/opt/venv/bin/pip3 install -U \
+          pip numpy wheel packaging requests opt_einsum
+        ${SNAPCRAFT_PART_INSTALL}/opt/venv/bin/pip3 install -U \
+          keras_preprocessing --no-deps
+  bazel:
+    plugin: nil
+    source: https://github.com/bazelbuild/bazel/releases/download/5.3.1/bazel-5.3.1-linux-arm64
+  tensorflow:
+    after:
+      - venv
+    plugin: nil
+    source: https://github.com/nxp-imx/tensorflow-imx.git
+    source-type: git
+    source-branch: imx_5.4.70_2.3.2
+    source-depth: 1
+    override-build: |
+      ./configure

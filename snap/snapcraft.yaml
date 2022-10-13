@@ -10,7 +10,8 @@ architectures:
   - build-on:
       - amd64
       - arm64
-    run-on: arm64
+    run-on:
+      - arm64
 
 parts:
   # TensorFlow needs a newer version of protobuf than what's in 20.04

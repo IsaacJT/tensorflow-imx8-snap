@@ -75,6 +75,7 @@ parts:
     prime:
       - usr/bin
 
+  # Reference model as per the "i.MX Machine Learning User's Guide" from NXP
   mobilenet-model:
     plugin: dump
     source: https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_2018_08_02/mobilenet_v1_1.0_224_quant.tgz
@@ -84,6 +85,7 @@ parts:
     stage:
       - usr/share/models
 
+  # Vivante GPU libraries for the i.MX8
   imx-gpu-viv:
     plugin: nil
     build-packages:
@@ -109,6 +111,7 @@ parts:
     prime:
       - usr/lib
 
+  # libneuralnetwork libraries for the i.MX8
   nn-imx:
     after:
       - imx-gpu-viv
@@ -126,6 +129,7 @@ parts:
         - CXX: "${SNAPCRAFT_ARCH_TRIPLET}-g++"
       - CFLAGS: "-I${SNAPCRAFT_STAGE}/usr/include ${CFLAGS}"
       - CXXFLAGS: "-I${SNAPCRAFT_STAGE}/usr/include ${CXXFLAGS}"
+      # Not a typo; the NXP Makefiles use LFLAGS instead of LDFLAGS
       - LFLAGS: "-L${SNAPCRAFT_STAGE}/usr/lib"
     make-parameters:
       - SDKTARGETSYSROOT=${SNAPCRAFT_STAGE}
@@ -135,12 +139,6 @@ parts:
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/lib/
       cp -a ${SNAPCRAFT_PART_BUILD}/lib*.so* \
         ${SNAPCRAFT_PART_INSTALL}/usr/lib/
-
-  tools:
-    plugin: nil
-    stage-packages:
-      - gdb
-      - strace
 
 plugs:
   shared-memory:

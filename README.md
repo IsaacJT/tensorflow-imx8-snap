@@ -10,7 +10,7 @@ Refer to the [i.MX Machine Learning User's Guide](https://community.nxp.com/pwmx
 
 Run the following command to execute the TensorFlow Lite benchmark:
 
-    tensorflow-imx8.benchmark-model \
+    itrue-tensorflow-imx8.benchmark-model \
         --graph=/snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
 
 Example result:
@@ -34,7 +34,7 @@ Example result:
 
 To enable GPU/NPU acceleration for the same benchmark (requires elevated permissions to access the device node):
 
-    sudo tensorflow-imx8.benchmark-model \
+    sudo itrue-tensorflow-imx8.benchmark-model \
         --graph=/snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
         --use_nnapi=true
    
@@ -68,7 +68,7 @@ Copy the relevant image and labels files to the SNAP_COMMON directory, e.g.:
     
 Run the following command to run the label-image example without acceleration:
 
-    tensorflow-imx8.label-image \
+    itrue-tensorflow-imx8.label-image \
         -m /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
         -i /var/snap/tensorflow-imx8/common/grace_hopper.bmp \
         -l /var/snap/tensorflow-imx8/common/labels.txt 
@@ -87,7 +87,7 @@ Example result:
        
 Run the following command to run the label-image example with GPU/NPU acceleration (requires elevated permissions to access the device node):
 
-    sudo tensorflow-imx8.label-image \
+    sudo itrue-tensorflow-imx8.label-image \
         -m /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
         -i /var/snap/tensorflow-imx8/common/grace_hopper.bmp \
         -l /var/snap/tensorflow-imx8/common/labels.txt \

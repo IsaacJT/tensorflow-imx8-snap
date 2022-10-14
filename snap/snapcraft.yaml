@@ -28,7 +28,7 @@ parts:
       - on arm64:
         - g++
       - else:
-        - ${SNAPCRAFT_ARCH_TRIPLET}-g++
+        - g++-${SNAPCRAFT_ARCH_TRIPLET}
       - ccache
     prime:
       - -*
@@ -50,7 +50,7 @@ parts:
       - on arm64:
         - g++
       - else:
-        - ${SNAPCRAFT_ARCH_TRIPLET}-g++
+        - g++-${SNAPCRAFT_ARCH_TRIPLET}
     stage-packages:
       - libjpeg8
     build-environment:

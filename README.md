@@ -86,7 +86,7 @@ Run the following command to run the label-image example with GPU/NPU accelerati
     sudo itrue-tensorflow-imx8.label-image \
         -m /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
         -i /snap/itrue-tensorflow-imx8/current/usr/share/tflite-examples/grace_hopper.bmp \
-        -l /snap/itrue-tensorflow-imx8/current/usr/share/tflite-examples/labels.txt
+        -l /snap/itrue-tensorflow-imx8/current/usr/share/tflite-examples/labels.txt \
         -a 1
 
 Example result:

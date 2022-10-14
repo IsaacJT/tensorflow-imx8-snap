@@ -11,15 +11,15 @@ Refer to the [i.MX Machine Learning User's Guide](https://community.nxp.com/pwmx
 Run the following command to execute the TensorFlow Lite benchmark:
 
     itrue-tensorflow-imx8.benchmark-model \
-        --graph=/snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
+        --graph=/snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
 
 Example result:
 
     STARTING!
     Log parameter values verbosely: [0]
-    Graph: [/snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite]
+    Graph: [/snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite]
     Use NNAPI: [0]
-    Loaded model /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
+    Loaded model /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
     The input model file size (MB): 4.27635
     Initialized session in 2.517ms.
     Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
@@ -35,17 +35,17 @@ Example result:
 To enable GPU/NPU acceleration for the same benchmark (requires elevated permissions to access the device node):
 
     sudo itrue-tensorflow-imx8.benchmark-model \
-        --graph=/snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
+        --graph=/snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
         --use_nnapi=true
    
 Example result:
 
     STARTING!
     Log parameter values verbosely: [0]
-    Graph: [/snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite]
+    Graph: [/snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite]
     Use NNAPI: [1]
     NNAPI accelerators available: [vsi-npu]
-    Loaded model /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
+    Loaded model /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
     INFO: Created TensorFlow Lite delegate for NNAPI.
     Explicitly applied NNAPI delegate, and the model graph will be completely executed by the delegate.
     The input model file size (MB): 4.27635
@@ -69,13 +69,13 @@ Copy the relevant image and labels files to the SNAP_COMMON directory, e.g.:
 Run the following command to run the label-image example without acceleration:
 
     itrue-tensorflow-imx8.label-image \
-        -m /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
-        -i /var/snap/tensorflow-imx8/common/grace_hopper.bmp \
-        -l /var/snap/tensorflow-imx8/common/labels.txt 
+        -m /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
+        -i /var/snap/itrue-tensorflow-imx8/common/grace_hopper.bmp \
+        -l /var/snap/itrue-tensorflow-imx8/common/labels.txt 
     
 Example result:
 
-    INFO: Loaded model /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
+    INFO: Loaded model /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
     INFO: resolved reporter
     INFO: invoked
     INFO: average time: 57.346 ms
@@ -88,14 +88,14 @@ Example result:
 Run the following command to run the label-image example with GPU/NPU acceleration (requires elevated permissions to access the device node):
 
     sudo itrue-tensorflow-imx8.label-image \
-        -m /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
-        -i /var/snap/tensorflow-imx8/common/grace_hopper.bmp \
-        -l /var/snap/tensorflow-imx8/common/labels.txt \
+        -m /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
+        -i /var/snap/itrue-tensorflow-imx8/common/grace_hopper.bmp \
+        -l /var/snap/itrue-tensorflow-imx8/common/labels.txt \
         -a 1
     
 Example result:
 
-    INFO: Loaded model /snap/tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
+    INFO: Loaded model /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
     INFO: resolved reporter
     INFO: Created TensorFlow Lite delegate for NNAPI.
     INFO: Applied NNAPI delegate.

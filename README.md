@@ -37,7 +37,7 @@ To enable GPU/NPU acceleration for the same benchmark (requires elevated permiss
     sudo itrue-tensorflow-imx8.benchmark-model \
         --graph=/snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
         --use_nnapi=true
-   
+
 Example result:
 
     STARTING!
@@ -59,20 +59,16 @@ Example result:
     Inference timings in us: Init: 13386, First inference: 11403859, Warmup (avg): 1.14039e+07, Inference (avg): 3756.87
     Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
     Peak memory footprint (MB): init=0 overall=15.3438
-    
+
 ### label-image
 
-Copy the relevant image and labels files to the SNAP_COMMON directory, e.g.:
-
-    cp grace_hopper.bmp labels.txt /var/snap/itrue-tensorflow-imx8/common/
-    
 Run the following command to run the label-image example without acceleration:
 
     itrue-tensorflow-imx8.label-image \
         -m /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
-        -i /var/snap/itrue-tensorflow-imx8/common/grace_hopper.bmp \
-        -l /var/snap/itrue-tensorflow-imx8/common/labels.txt 
-    
+        -i /snap/itrue-tensorflow-imx8/current/usr/share/tflite-examples/grace_hopper.bmp \
+        -l /snap/itrue-tensorflow-imx8/current/usr/share/tflite-examples/labels.txt
+
 Example result:
 
     INFO: Loaded model /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite
@@ -84,15 +80,15 @@ Example result:
     INFO: 0.0156863: 458 458:bow tie, bow-tie, bowtie
     INFO: 0.00784314: 835 835:suit, suit of clothes
     INFO: 0.00784314: 700 700:panpipe, pandean pipe, syrinx
-       
+
 Run the following command to run the label-image example with GPU/NPU acceleration (requires elevated permissions to access the device node):
 
     sudo itrue-tensorflow-imx8.label-image \
         -m /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite \
-        -i /var/snap/itrue-tensorflow-imx8/common/grace_hopper.bmp \
-        -l /var/snap/itrue-tensorflow-imx8/common/labels.txt \
+        -i /snap/itrue-tensorflow-imx8/current/usr/share/tflite-examples/grace_hopper.bmp \
+        -l /snap/itrue-tensorflow-imx8/current/usr/share/tflite-examples/labels.txt
         -a 1
-    
+
 Example result:
 
     INFO: Loaded model /snap/itrue-tensorflow-imx8/current/usr/share/models/mobilenet_v1_1.0_224_quant.tflite

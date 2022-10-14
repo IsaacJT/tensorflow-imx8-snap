@@ -148,6 +148,13 @@ parts:
       cp -a ${SNAPCRAFT_PART_BUILD}/lib*.so* \
         ${SNAPCRAFT_PART_INSTALL}/usr/lib/
 
+  # Files for testing TensorFlow Lite
+  examples:
+    plugin: dump
+    source: examples
+    organize:
+      "*": usr/share/tflite-examples/
+
 plugs:
   shared-memory:
     private: true

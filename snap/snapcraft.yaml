@@ -3,7 +3,9 @@ base: core20
 version: '0.1'
 summary: TensorFlow Lite for the i.MX8
 description: |
-  TensorFlow Lite examples for the i.MX8 MP
+  TensorFlow Lite libraries and examples for i.MX8 MP platforms. This is mostly
+  a proof-of-concept to show that the GPU/NPU acceleration features of the
+  i.MX8 MP are working in the context of a Snap.
 grade: stable
 confinement: strict
 architectures:

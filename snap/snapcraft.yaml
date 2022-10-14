@@ -44,6 +44,7 @@ parts:
       - ccache
       - libjpeg-dev:${SNAPCRAFT_TARGET_ARCH}
       - ninja-build
+      - unzip
     stage-packages:
       - libjpeg8
     build-environment:

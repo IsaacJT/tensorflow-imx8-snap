@@ -25,7 +25,10 @@ parts:
     autotools-configure-parameters:
       - "--host=${SNAPCRAFT_ARCH_TRIPLET}"
     build-packages:
-      - g++
+      - on arm64:
+        - g++
+      - else:
+        - ${SNAPCRAFT_ARCH_TRIPLET}-g++
       - ccache
     prime:
       - -*
@@ -40,11 +43,14 @@ parts:
     source-depth: 1
     build-packages:
       - cmake
-      - g++
       - ccache
       - libjpeg-dev:${SNAPCRAFT_TARGET_ARCH}
       - ninja-build
       - unzip
+      - on arm64:
+        - g++
+      - else:
+        - ${SNAPCRAFT_ARCH_TRIPLET}-g++
     stage-packages:
       - libjpeg8
     build-environment:

@@ -39,7 +39,7 @@ parts:
     after:
       - protobuf
     plugin: nil
-    source: https://source.codeaurora.org/external/imx/tensorflow-imx
+    source: https://github.com/nxp-imx/tensorflow-imx.git
     source-type: git
     source-branch: imx_5.4.70_2.3.2
     source-depth: 1
@@ -126,7 +126,7 @@ parts:
     after:
       - imx-gpu-viv
     plugin: make
-    source: https://source.codeaurora.org/external/imx/nn-imx
+    source: https://github.com/nxp-imx/nn-imx.git
     source-type: git
     source-tag: rel_imx_5.4.70_2.3.2
     build-environment:
